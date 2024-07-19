@@ -7,14 +7,17 @@ import datetime
 
 class BaseModel:
     "Defines all common attributes/methods for other classes"
-    def __init__(self, id=None):
+    def __init__(self, *args, **kwargs):
         """Initialize the data"""
-        if id is not None:
-            self.id = id
-        else:
-            self.id = str(uuid.uuid4())
+        self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
+
+        if len(kwargs) > 0:
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    continue
+                self.__dict__[key] = value
 
     def __str__(self):
         """prints in stdout: [<class name>] (<self.id>) <self.__dict__>"""
