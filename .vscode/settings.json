@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./models/engine/file_",
+        "./models/engine/file_"
+    ]
+}
