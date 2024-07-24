@@ -14,6 +14,9 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
+                if (key in ["created_at", "updated_at"] and
+                        isinstance(value, str)):
+                    value = datetime.datetime.fromisoformat(value)
                 self.__dict__[key] = value
         else:
             self.id = str(uuid.uuid4())
