@@ -61,9 +61,9 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(len1 + 3, len2)
 
 
-    def test___file_path_exists(self):
+    def test_file_path_exists(self):
         """Test of FileStorage class for check __file_path"""
-        all_objs = storage.all()
+        storage.save()
         self.assertTrue(os.path.exists(self.__file_path))
     
     def tearDown(self):
