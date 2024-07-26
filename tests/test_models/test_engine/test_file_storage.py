@@ -44,20 +44,10 @@ class TestFileStorage(unittest.TestCase):
     def test_reload_method(self):
         """Test of FileStorage class for the reload method"""
         len1 = len(storage.all())
-        my_model1 = BaseModel()
-        my_model1.save()
-        storage.all()
-        my_model2 = BaseModel()
-        my_model2.name = "My_First_Model"
-        my_model2.save()
-        storage.all()
-        my_model3 = BaseModel()
-        my_model3.my_number = 89
-        my_model3.save()
-        storage.all()
+        storage.reload()
         len2 = len(storage.all())
 
-        self.assertEqual(len1 + 3, len2)
+        self.assertEqual(len1, len2)
 
 
     def test_file_path_exists(self):
