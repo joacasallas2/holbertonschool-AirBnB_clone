@@ -43,6 +43,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload_method(self):
         """Test of FileStorage class for the reload method"""
+        storage.save()
         len1 = len(storage.all())
         storage.reload()
         len2 = len(storage.all())
