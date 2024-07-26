@@ -19,7 +19,6 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all_method(self):
         """Test of FileStorage class for the all method"""
-        my_model = BaseModel()
         all_objs = storage.all()
 
         self.assertDictEqual(all_objs, self.__objects)
