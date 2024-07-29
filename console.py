@@ -13,9 +13,9 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     classes = {'BaseModel': BaseModel}
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         """Initialize the data"""
-        super().__init__()
+        super().__init__(**kwargs)
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -126,7 +126,21 @@ class HBNBCommand(cmd.Cmd):
         if key not in dict_objs:
             print("** no instance found **")
             return
-        setattr(dict_objs[key], args[2], args[3])
+        instance = dict_objs[key]
+        att_name = args[2]
+        att_value = args[3]
+        try:
+            if att_value.isdigit():
+                att_value = int(att_value)
+            else:
+                try:
+                    att_value = float(att_value)
+                except ValueError:
+                    pass
+        except AttributeError:
+            pass
+        setattr(instance, att_name, att_value)
+        instance.save()
         storage.save()
 
 
