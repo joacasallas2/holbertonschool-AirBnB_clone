@@ -1,6 +1,7 @@
 """Tests"""
 
 import unittest
+import os
 from models.user import User
 
 
@@ -10,6 +11,13 @@ class TestUser(unittest.TestCase):
         """Create a new instance for each test"""
         self.my_user = User()
         self.my_user.save()
+
+    def teardown(self):
+        """teardown"""
+        try:
+            os.remove("file.json")
+        except Exception:
+            pass
 
     def test_user_email(self):
         """Test of User class for assigning or updating the user email"""
