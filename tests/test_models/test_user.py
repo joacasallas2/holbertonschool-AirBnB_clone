@@ -48,7 +48,7 @@ class TestUser(unittest.TestCase):
         self.assertIn("password", self.my_user_dict)
         self.assertEqual(self.my_user_dict["password"], "root")
 
-    def test_attributes_User(self):
+    def test_attributes_user(self):
         """chekcing if User have attributes"""
         self.assertTrue('email' in self.my_user.__dict__)
         self.assertTrue('id' in self.my_user.__dict__)
@@ -58,6 +58,12 @@ class TestUser(unittest.TestCase):
         self.assertTrue('first_name' in self.my_user.__dict__)
         self.assertTrue('last_name' in self.my_user.__dict__)
 
+    def test_attribute_types_user(self):
+        """test attribute type for User"""
+        self.assertEqual(type(self.my_user.email), str)
+        self.assertEqual(type(self.my_user.password), str)
+        self.assertEqual(type(self.my_user.first_name), str)
+        self.assertEqual(type(self.my_user.first_name), str)
 
 
 if __name__ == "__main__":
