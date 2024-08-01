@@ -2,9 +2,9 @@
 
 import unittest
 import os
+import pep8
 from models.base_model import BaseModel
 from models.user import User
-import pep8
 
 
 class TestUser(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestUser(unittest.TestCase):
         os.remove("file.json")
         del cls.user
 
-    def test_pep8_User(self):
+    def test_pep8_user(self):
         """Tests pep8 style"""
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/user.py'])
@@ -77,8 +77,6 @@ class TestUser(unittest.TestCase):
     def test_save_user(self):
         """test the save method"""
         self.assertNotEqual(self.user.created_at, self.user.updated_at)
-
-    
 
 
 if __name__ == "__main__":

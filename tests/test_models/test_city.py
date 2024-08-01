@@ -1,7 +1,8 @@
-"""Tests State class"""
+"""Tests City class"""
 
 import unittest
 import os
+import pep8
 from models.base_model import BaseModel
 from models.city import City
 from models.state import State
@@ -31,6 +32,12 @@ class TestCity(unittest.TestCase):
             os.remove("file.json")
         del cls.city
         del cls.state
+
+    def test_pep8_city(self):
+        """Tests pep8 style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/city.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_city_name(self):
         """Test of city class for assigning or updating the name"""

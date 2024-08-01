@@ -1,7 +1,8 @@
-"""Tests State class"""
+"""Tests Place class"""
 
 import unittest
 import os
+import pep8
 from models.base_model import BaseModel
 from models.city import City
 from models.user import User
@@ -9,8 +10,8 @@ from models.amenity import Amenity
 from models.place import Place
 
 
-class TestCity(unittest.TestCase):
-    """Group of test of City class"""
+class TestPlace(unittest.TestCase):
+    """Group of test of Place class"""
 
     @classmethod
     def setUpClass(cls):
@@ -64,6 +65,12 @@ class TestCity(unittest.TestCase):
         del cls.user
         del cls.amenity_1
         del cls.amenity_2
+
+    def test_pep8_place(self):
+        """Tests pep8 style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/place.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_place_name(self):
         """Test of place class for assigning or updating the name"""

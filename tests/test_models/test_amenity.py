@@ -1,7 +1,8 @@
-"""Tests User class"""
+"""Tests Amenity class"""
 
 import unittest
 import os
+import pep8
 from models.base_model import BaseModel
 from models.amenity import Amenity
 
@@ -22,6 +23,12 @@ class TestAmenity(unittest.TestCase):
         """teardown"""
         os.remove("file.json")
         del cls.amenity
+
+    def test_pep8_amenity(self):
+        """Tests pep8 style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/amenity.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_amenity_name(self):
         """Test of amenity class for assigning or updating the name"""
