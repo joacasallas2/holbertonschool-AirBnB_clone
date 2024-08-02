@@ -157,6 +157,13 @@ class HBNBCommand(cmd.Cmd):
         instance.save()
         storage.save()
 
+    def default(self, line):
+        """retrieve all instances of a class by using: <class name>.all()"""
+        if "." in line:
+            class_name, command = line.split(".", 1)
+            if class_name in self.classes and command == "all()":
+                return self.do_all(class_name)
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()

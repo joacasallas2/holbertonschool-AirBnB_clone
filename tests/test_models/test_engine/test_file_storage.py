@@ -49,6 +49,17 @@ class TestFileStorage(unittest.TestCase):
 
         self.assertEqual(len1, len2)
 
+        my_model2 = BaseModel()
+        storage.new(my_model2)
+        storage.save()
+
+        storage._FileStorage__objects = {}
+        storage.reload()
+        reloaded_objs = storage.all()
+
+        id_model2 = f"BaseModel.{my_model2.id}"
+        self.assertIn(id_model2, reloaded_objs)
+
 
     def test_file_path_exists(self):
         """Test of FileStorage class for check __file_path"""
