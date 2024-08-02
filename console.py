@@ -160,7 +160,8 @@ class HBNBCommand(cmd.Cmd):
     def default(self, line):
         """retrieve all instances of a class by using: <class name>.all()
         or retrieve the number of instances of a class <class name>.count()
-        or retrieve an instance based on its ID: <class name>.show(<id>)."""
+        or retrieve an instance based on its ID: <class name>.show(<id>).
+        or destroy an instance based on his ID: <class name>.destroy(<id>)"""
         if "." in line:
             class_name, command = line.split(".", 1)
             if class_name in self.classes:
@@ -176,6 +177,9 @@ class HBNBCommand(cmd.Cmd):
                 elif "show(" in command:
                     instance_id = command[5:-1]
                     self.do_show(f"{class_name} {instance_id}")
+                elif "destroy(" in command:
+                    instance_id = command[8:-1]
+                    self.do_destroy(f"{class_name} {instance_id}")
 
 
 if __name__ == "__main__":
