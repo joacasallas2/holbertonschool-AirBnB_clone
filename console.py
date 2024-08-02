@@ -158,12 +158,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def default(self, line):
-        """retrieve all instances of a class by using: <class name>.all()
-        or retrieve the number of instances of a class <class name>.count()
-        or retrieve an instance based on its ID: <class name>.show(<id>).
-        or destroy an instance based on his ID: <class name>.destroy(<id>)
-        update <class name>.update(<id>, <attribute name>, <attribute value>)
-        """
+        """Handle commands with dot notation."""
         if "." in line:
             class_name, command = line.split(".", 1)
             if class_name in self.classes:
@@ -184,10 +179,13 @@ class HBNBCommand(cmd.Cmd):
                     self.do_destroy(f"{class_name} {instance_id}")
                 elif "update(" in command:
                     param = command[7:-1].strip()
-                    attrs = shlex.split(param)
-                    if len(attrs) == 3:
-                        self.do_update(
-                            f"{class_name} {attrs[0]} {attrs[1]} {attrs[2]}")
+                    if param.startswith("{"):
+                        pass
+                    else:
+                        atts = shlex.split(param)
+                        if len(atts) == 3:
+                            self.do_update(
+                                f"{class_name} {atts[0]} {atts[1]} {atts[2]}")
 
 
 if __name__ == "__main__":
