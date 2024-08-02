@@ -184,8 +184,9 @@ class HBNBCommand(cmd.Cmd):
                     self.do_destroy(f"{class_name} {instance_id}")
                 elif "update(" in command:
                     attrs = command[7:-1].split()
-                    self.do_update(
-                        f"{class_name} {attrs[0]} {attrs[1]} {attrs[2]}")
+                    if len(attrs) == 3:
+                        self.do_update(
+                            f"{class_name} {attrs[0]} {attrs[1]} {attrs[2]}")
 
 
 if __name__ == "__main__":
