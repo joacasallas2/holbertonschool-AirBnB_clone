@@ -184,8 +184,11 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         atts = shlex.split(param)
                         if len(atts) == 3:
+                            id_obj = atts[0].split(",", 1)[0]
+                            at_name = atts[1].split(",", 1)[0]
+                            at_value = atts[2].split(",", 1)[0]
                             self.do_update(
-                                f"{class_name} {atts[0]} {atts[1]} {atts[2]}")
+                                f"{class_name} {id_obj} {at_name} {at_value}")
 
 
 if __name__ == "__main__":
