@@ -158,11 +158,20 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def default(self, line):
-        """retrieve all instances of a class by using: <class name>.all()"""
+        """retrieve all instances of a class by using: <class name>.all()
+        or retrieve the number of instances of a class <class name>.count()"""
         if "." in line:
             class_name, command = line.split(".", 1)
-            if class_name in self.classes and command == "all()":
-                return self.do_all(class_name)
+            if class_name in self.classes:
+                if command == "all()":
+                    self.do_all(class_name)
+                elif command == "count()":
+                    counter = 0
+                    list_instances = storage.all()
+                    for k, v in list_instances.items():
+                        if class_name in k:
+                            counter += 1
+                    print(counter)
 
 
 if __name__ == "__main__":
