@@ -159,7 +159,8 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         """retrieve all instances of a class by using: <class name>.all()
-        or retrieve the number of instances of a class <class name>.count()"""
+        or retrieve the number of instances of a class <class name>.count()
+        or retrieve an instance based on its ID: <class name>.show(<id>)."""
         if "." in line:
             class_name, command = line.split(".", 1)
             if class_name in self.classes:
@@ -172,6 +173,9 @@ class HBNBCommand(cmd.Cmd):
                         if class_name in k:
                             counter += 1
                     print(counter)
+                elif "show(" in command:
+                    instance_id = command[5:-1]
+                    self.do_show(f"{class_name} {instance_id}")
 
 
 if __name__ == "__main__":
