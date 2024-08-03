@@ -66,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        args = arg.split()
+        args = shlex.split(arg)
         if args[0] not in self.classes:
             print("** class doesn't exist **")
             return
@@ -85,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        args = arg.split()
+        args = shlex.split(arg)
         if args[0] not in self.classes:
             print("** class doesn't exist **")
             return
