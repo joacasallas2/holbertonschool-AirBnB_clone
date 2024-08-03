@@ -23,10 +23,10 @@ class TestHBNBCommand(unittest.TestCase):
         if os.path.exists("file.json"):
             os.remove("file.json")
 
-    def test_pep8_city(self):
+    def test_pep8_HBNBCommand(self):
         """Tests pep8 style"""
         style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/city.py'])
+        p = style.check_files(['console.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_quit(self):
