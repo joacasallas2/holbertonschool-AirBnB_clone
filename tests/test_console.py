@@ -32,8 +32,33 @@ class TestHBNBCommand(unittest.TestCase):
     def test_quit(self):
         """Test of HBNBCommand class for the quit command"""
         with patch('sys.stdout', new=StringIO()) as f:
-            result = HBNBCommand().onecmd("quit")
-            self.assertTrue(result)
+            self.console.onecmd("quit")
+            self.assertEqual("", f.getvalue())
+
+    def test_EOF(self):
+        """Test of HBNBCommand class for the EOF command"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("EOF")
+            self.assertTrue(self.console.onecmd("EOF"))
+
+    def test_emptyline(self):
+        """Test of HBNBCommand class for the emptyline command"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            self.console.onecmd("\n")
+            self.assertEqual("", f.getvalue())
+
+    def test_docstrings(self):
+        """Check for docstrings."""
+        self.assertIsNotNone(HBNBCommand.__doc__)
+        self.assertIsNotNone(HBNBCommand.emptyline.__doc__)
+        self.assertIsNotNone(HBNBCommand.do_quit.__doc__)
+        self.assertIsNotNone(HBNBCommand.do_EOF.__doc__)
+        self.assertIsNotNone(HBNBCommand.do_create.__doc__)
+        self.assertIsNotNone(HBNBCommand.do_show.__doc__)
+        self.assertIsNotNone(HBNBCommand.do_destroy.__doc__)
+        self.assertIsNotNone(HBNBCommand.do_all.__doc__)
+        self.assertIsNotNone(HBNBCommand.do_update.__doc__)
+        self.assertIsNotNone(HBNBCommand.default.__doc__)
 
 
 if __name__ == "__main__":
