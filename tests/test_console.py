@@ -3,8 +3,8 @@
 import unittest
 import os
 from io import StringIO
-import pep8
 from unittest.mock import patch
+import pep8
 from models import storage
 from console import HBNBCommand
 from models.base_model import BaseModel
