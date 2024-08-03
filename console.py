@@ -179,16 +179,21 @@ class HBNBCommand(cmd.Cmd):
                     self.do_destroy(f"{class_name} {instance_id}")
                 elif "update(" in command:
                     param = command[7:-1].strip()
-                    if param.startswith("{"):
-                        pass
-                    else:
-                        atts = shlex.split(param)
-                        if len(atts) == 3:
-                            id_obj = atts[0].split(",", 1)[0]
-                            at_name = atts[1].split(",", 1)[0]
-                            at_value = atts[2].split(",", 1)[0]
-                            self.do_update(
-                                f"{class_name} {id_obj} {at_name} {at_value}")
+                    atts = shlex.split(param[:])
+                    id_obj = atts[0].split(",", 1)[0]
+                    if "{" in param:
+                        for i, char in enumerate(param):
+                            if char == "{":
+                                dict_args = eval(param[i:len(param)])
+                                for k, v in dict_args.items():
+                                    self.do_update(
+                                        f"{class_name} {id_obj} {k} {v}")
+                                break
+                    elif len(atts) == 3:
+                        at_name = atts[1].split(",", 1)[0]
+                        at_value = atts[2].split(",", 1)[0]
+                        self.do_update(
+                            f"{class_name} {id_obj} {at_name} {at_value}")
 
 
 if __name__ == "__main__":
