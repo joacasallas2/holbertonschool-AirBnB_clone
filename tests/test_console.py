@@ -2,73 +2,31 @@
 
 import unittest
 import os
+from io import StringIO
+from unittest.mock import patch
 from models import storage
+from console import HBNBCommand
 from models.base_model import BaseModel
 
 
-class HBNBCommand(unittest.TestCase):
-    """Group of test of HBNBCommand class"""
-
+class TestHBNBCommand(unittest.TestCase):
+    """Group of tests of HBNBCommand class"""
 
     def setUp(self):
         """initialize conditions to each test"""
-        self.__file_path = "file.json"
-        self.__objects = storage.all()
+        self.console = HBNBCommand()
 
-
-    def test_all_method(self):
-        """Test of HBNBCommand class for the all method"""
-        all_objs = storage.all()
-
-        self.assertDictEqual(all_objs, self.__objects)
-
-    def test_new_method(self):
-        """Test of HBNBCommand class for the new method"""
-        my_model = BaseModel()
-        id_model = f"BaseModel.{my_model.id}"
-        all_objs = storage.all()
-
-        self.assertIn(id_model, all_objs)
-
-    def test_save_method(self):
-        """Test of HBNBCommand class for the save method"""
-        len1 = len(storage.all())
-        my_model = BaseModel()
-        my_model.name = "My_First_Model"
-        my_model.save()
-        len2 = len(storage.all())
-
-        self.assertEqual(len1 + 1, len2)
-
-    def test_reload_method(self):
-        """Test of HBNBCommand class for the reload method"""
-        storage.save()
-        len1 = len(storage.all())
-        storage.reload()
-        len2 = len(storage.all())
-
-        self.assertEqual(len1, len2)
-
-        my_model2 = BaseModel()
-        storage.new(my_model2)
-        storage.save()
-
-        storage._HBNBCommand__objects = {}
-        storage.reload()
-        reloaded_objs = storage.all()
-
-        id_model2 = f"BaseModel.{my_model2.id}"
-        self.assertIn(id_model2, reloaded_objs)
-
-
-    def test_file_path_exists(self):
-        """Test of HBNBCommand class for check __file_path"""
-        storage.save()
-        self.assertTrue(os.path.exists(self.__file_path))
-    
     def tearDown(self):
         """Clean up conditions after each test"""
-        os.remove(self.__file_path) if os.path.exists(self.__file_path) else None
+        storage._FileStorage__objects = {}
+        if os.path.exists("file.json"):
+            os.remove("file.json")
+
+    def test_quit(self):
+        """Test of HBNBCommand class for the quit command"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            result = HBNBCommand().onecmd("quit")
+            self.assertTrue(result)
 
 
 if __name__ == "__main__":
