@@ -1,7 +1,30 @@
+:root {
+  /* Common Custom Properties */
+  --text-color: #484848;
+  --font-size: 14px;
+  --font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --border-section: 1px solid #cccccc;
+  --color-white: white;
+
+  /* Header Custom Properties */
+  --Header-background-color: var(--color-white);
+  --Header-height: 70px;
+  --Header-width: 100%;
+
+  /* Header-logo Custom Properties */
+  --header-logo-width: 100px;
+  --header-logo-padding-left: 20px;
+
+  /* Footer Custom Properties */
+  --footer-height: 60px;
+  --footer-width: 100%;
+  --footer-text-align: center;
+}
+
 body {
   margin: 0;
   padding: 0;
-  color: #484848;
-  font-size: 14px;
-  font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
 }

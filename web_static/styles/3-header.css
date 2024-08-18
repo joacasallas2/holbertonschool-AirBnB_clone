@@ -1,11 +1,16 @@
 header {
-  background-color: white;
-  height: 70px;
-  width: 100%;
-  border-bottom: 1px #CCCCCC;
+  background-color: var(--Header-background-color);
+  height: var(--Header-height);
+  width: var(--Header-width);
+  border-bottom: var(--border-section);
 }
 
-header .img {
-  left: 20px;
-  vertical-align: middle;
+.header-logo {
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: var(--Header-height);
+  width: var(--header-logo-width);
+  padding-left: var(--header-logo-padding-left);
 }
