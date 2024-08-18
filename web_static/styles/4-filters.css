@@ -1,0 +1,31 @@
+
+.container {
+    max-width: var(--container-max-width);
+    margin: var(--container-margin);
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  
+  section.filters {
+    background-color: var(--filters-background-color);
+    height: var(--filters-height);
+    width: var(--container-max-width);
+    border: var(--filters-border);
+    border-radius: var(--filters-border-radius);
+    display: flex;
+    align-items: center;
+  }
+  
+  section.filters button {
+    font-size: var(--button-font-size);
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    height: var(--button-height);
+    width: var(--button-width);
+    border: var(--button-border);
+    border-radius: var(--button-border-radius);
+    right: 30px;
+    position: absolute;
+  }
+  
