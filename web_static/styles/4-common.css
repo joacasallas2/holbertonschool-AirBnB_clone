@@ -42,7 +42,6 @@
   --button-border-radius: 4px;
 
   /* Amenities and Locations Custom Properties */
-  --amenities-locations-padding-left: var(--header-items-padding-left);
   --amenities-locations-width: 25%;
 }
 
@@ -53,3 +52,4 @@ body {
   font-size: var(--font-size);
   font-family: var(--font-family);
 }
+
