@@ -1,0 +1,53 @@
+.container {
+  max-width: var(--container-max-width);
+  margin: var(--container-margin);
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+section.filters {
+  background-color: var(--filters-background-color);
+  height: var(--filters-height);
+  width: var(--container-max-width);
+  border: var(--filters-border);
+  border-radius: var(--filters-border-radius);
+  display: flex;
+  align-items: center;
+}
+
+section.filters button {
+  font-size: var(--button-font-size);
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  height: var(--button-height);
+  width: var(--button-width);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  right: 30px;
+  position: absolute;
+}
+
+.locations,
+.amenities {
+  height: var(--filters-height);
+  width: var(--amenities-locations-width);
+  padding-left: var(--header-items-padding-left);
+}
+
+.locations {
+  border-right: var(--filters-border);
+}
+
+.locations h3,
+.amenities h3 {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0;
+}
+
+.locations h4,
+.amenities h4 {
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size);
+  margin-top: 0;
+}

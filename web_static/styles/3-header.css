@@ -12,5 +12,5 @@ header {
   background-position: center;
   height: var(--Header-height);
   width: var(--header-logo-width);
-  padding-left: var(--header-logo-padding-left);
+  padding-left: var(--header-items-padding-left);
 }

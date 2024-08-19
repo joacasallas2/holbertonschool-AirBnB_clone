@@ -5,6 +5,8 @@
   --font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --border-section: 1px solid #cccccc;
   --color-white: white;
+  --font-weight-bold: 600;
+  --font-weight-light: 400;
 
   /* Header Custom Properties */
   --Header-background-color: var(--color-white);
@@ -13,7 +15,7 @@
 
   /* Header-logo Custom Properties */
   --header-logo-width: 100px;
-  --header-logo-padding-left: 20px;
+  --header-items-padding-left: 20px;
 
   /* Footer Custom Properties */
   --footer-height: 60px;
@@ -38,6 +40,10 @@
   --button-width: 20%;
   --button-border: none;
   --button-border-radius: 4px;
+
+  /* Amenities and Locations Custom Properties */
+  --amenities-locations-padding-left: var(--header-items-padding-left);
+  --amenities-locations-width: 25%;
 }
 
 body {
