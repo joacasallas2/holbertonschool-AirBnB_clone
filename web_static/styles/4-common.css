@@ -1,55 +1,12 @@
-:root {
-  /* Common Custom Properties */
-  --text-color: #484848;
-  --font-size: 14px;
-  --font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --border-section: 1px solid #cccccc;
-  --color-white: white;
-  --font-weight-bold: 600;
-  --font-weight-light: 400;
-
-  /* Header Custom Properties */
-  --Header-background-color: var(--color-white);
-  --Header-height: 70px;
-  --Header-width: 100%;
-
-  /* Header-logo Custom Properties */
-  --header-logo-width: 100px;
-  --header-items-padding-left: 20px;
-
-  /* Footer Custom Properties */
-  --footer-height: 60px;
-  --footer-width: 100%;
-  --footer-text-align: center;
-
-  /* Container Custom Properties */
-  --container-max-width: 1000px;
-  --container-margin: 30px auto;
-
-  /* Filters Custom Properties */
-  --filters-background-color: var(--color-white);
-  --filters-height: 70px;
-  --filters-border: 1px solid #dddddd;
-  --filters-border-radius: 4px;
-
-  /* Button Custom Properties */
-  --button-font-size: 18px;
-  --button-background-color: #ff5a5f;
-  --button-text-color: #ffffff;
-  --button-height: 48px;
-  --button-width: 20%;
-  --button-border: none;
-  --button-border-radius: 4px;
-
-  /* Amenities and Locations Custom Properties */
-  --amenities-locations-width: 25%;
-}
-
 body {
-  margin: 0;
-  padding: 0;
-  color: var(--text-color);
-  font-size: var(--font-size);
-  font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+}
